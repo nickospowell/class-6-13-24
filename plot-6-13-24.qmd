@@ -1,5 +1,5 @@
 ---
-title: "Median Income in Massachusets"
+title: "Median Income in Massachusetts"
 author: "Nicholas Oliver Silveira Powell"
 format: html
 execute: 
@@ -19,8 +19,12 @@ mass <- read_csv("mass-tracts.csv")
 #| label: plot
 
 mass |>
+  drop_na() |>
   ggplot(aes(x = med_income, 
              fill = fct_reorder(race, med_income, median))) +
-    geom_density(alpha = 0.75, bw = 25000) 
+    geom_density(alpha = 0.75, bw = 25000) + 
+  labs(title = "Median Income for Massachussetts Census Tracts", subtitle = "The richest tracts are White", x = "Median Income", y = NULL, fill = "Race", caption = "The race of each tract is determined by the most numerous racial group\n present in that tract. Data from the American Community Survey 2022") + 
+  scale_x_continuous(labels = scales::label_dollar()) + 
+  theme_bw() + theme(axis.ticks.y = element_blank(), panel.border = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank()) 
 ```
 
