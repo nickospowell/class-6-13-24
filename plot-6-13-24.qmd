@@ -25,6 +25,7 @@ mass |>
     geom_density(alpha = 0.75, bw = 25000) + 
   labs(title = "Median Income for Massachussetts Census Tracts", subtitle = "The richest tracts are White", x = "Median Income", y = NULL, fill = "Race", caption = "The race of each tract is determined by the most numerous racial group\n present in that tract. Data from the American Community Survey 2022") + 
   scale_x_continuous(labels = scales::label_dollar()) + 
-  theme_bw() + theme(axis.ticks.y = element_blank(), panel.border = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank()) 
+  theme_bw() + 
+  theme(axis.ticks.y = element_blank(), panel.border = element_blank(), axis.ticks.x = element_blank(), axis.text.y = element_blank()) 
 ```
 
