@@ -1,0 +1,26 @@
+---
+title: "Median Income in Massachusets"
+author: "Nicholas Oliver Silveira Powell"
+format: html
+execute: 
+  echo: false
+---
+
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+library(tidycensus)
+mass <- read_csv("mass-tracts.csv")
+```
+
+```{r}
+#| label: plot
+
+mass |>
+  ggplot(aes(x = med_income, 
+             fill = fct_reorder(race, med_income, median))) +
+    geom_density(alpha = 0.75, bw = 25000) 
+```
+
